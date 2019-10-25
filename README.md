@@ -1,4 +1,4 @@
-# dm-backend
+# dm-backend [![Awesome]
 Backend service for Doodle Math
 
 Load the project into IntelliJ
