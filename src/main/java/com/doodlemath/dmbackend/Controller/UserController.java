@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/***
+ * Controller class maps the incoming requests to the respective business layer or database layer
+ * Author : Vineeth Chitteti
+ */
 @Controller
 @RequestMapping(path = "/auth")
 public class UserController {

@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/***
+ * Repository class, which executes database queries related to the User
+ */
 @Repository
 public interface UserRepository extends CrudRepository<User, Integer> {
 

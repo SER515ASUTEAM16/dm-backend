@@ -3,6 +3,10 @@ package com.doodlemath.dmbackend.Model;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/***
+ * An entity class, which is equivalent to the User table in the database
+ * Author : Vineeth Chitteti
+ */
 @Entity
 @Table(name="user")
 public class User implements Serializable {
