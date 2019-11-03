@@ -2,10 +2,13 @@ package com.doodlemath.dmbackend.Controller;
 
 import com.doodlemath.dmbackend.Model.User;
 import com.doodlemath.dmbackend.Repository.UserRepository;
+import com.doodlemath.dmbackend.constants.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping(path = "/auth")
@@ -21,10 +24,10 @@ public class UserController {
                 user.getPassword() == null || user.getPassword().isEmpty() ||
                 user.getEmail() == null || user.getEmail().isEmpty() ||
                 user.getRole() == null || user.getRole().isEmpty())
-            return "Failed";
+            return Constants.FAILED;
 
         userRepository.save(user);
-        return "Saved";
+        return Constants.SUCCESS;
     }
 
     @GetMapping(path = "/all")
@@ -39,9 +42,13 @@ public class UserController {
     public @ResponseBody
     String loginByName(@RequestBody User user) {
         if (user.getName() == null || user.getPassword() == null)
-            return "failed";
-        userRepository.findUserByName(user.getName(), user.getPassword());
-        return "Saved";
+            return Constants.FAILED;
+        List<User> users = userRepository.findUserByName(user.getName(), user.getPassword());
+
+        if(users == null || users.isEmpty())
+            return Constants.FAILED;
+
+        return Constants.SUCCESS;
     }
 
     @PostMapping(path = "/loginByEmail")
@@ -49,8 +56,12 @@ public class UserController {
     public @ResponseBody
     String loginByEmail(@RequestBody User user) {
         if (user.getPassword() == null || user.getEmail() == null)
-            return "failed";
-        userRepository.findUserByEmail(user.getEmail(), user.getPassword());
-        return "Saved";
+            return Constants.FAILED;
+        List<User> users = userRepository.findUserByEmail(user.getEmail(), user.getPassword());
+
+        if(users == null || users.isEmpty())
+            return Constants.FAILED;
+
+        return Constants.SUCCESS;
     }
 }
