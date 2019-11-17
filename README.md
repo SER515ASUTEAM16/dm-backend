@@ -110,13 +110,8 @@ Sample Response(200):
 Get All Students in a grade:
 ----------------------------
 
-GET Request url: http://localhost:8080/teacher/getAllStudentsInGrade
+GET Request url: http://localhost:8080/teacher/getAllStudentsInGrade/1-5
 
-Request Body: 
-    
-    {
-    	"grade" : "1-5"
-    } 
 
 Sample Response(200):
 
