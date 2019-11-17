@@ -24,14 +24,14 @@ public class TeacherController {
     @Autowired
     private UserRepository userRepository;
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin
     @GetMapping(path = "/getAllStudentsInGrade/{grade}")
     public @ResponseBody
     Iterable<User> getAllStudents(@PathVariable String grade) {
         return userRepository.findAllStudents(grade);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin
     @GetMapping(path = "/students")
     public @ResponseBody
     Iterable<User> addStudentToCourse(@RequestBody User user) {
