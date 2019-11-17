@@ -41,6 +41,13 @@ public class UserController {
         return userRepository.findAll();
     }
 
+    @GetMapping(path = "/allStudents")
+    public @ResponseBody
+    Iterable<User> getAllStudents() {
+        // This returns a JSON or XML with the users
+        return userRepository.findAll();
+    }
+
     @PostMapping(path = "/loginByName")
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody
