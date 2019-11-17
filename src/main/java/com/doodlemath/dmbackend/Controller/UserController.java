@@ -21,19 +21,21 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping(path = "/register")
     public @ResponseBody
-    String addNewUser(@RequestBody User user) {
+    User addNewUser(@RequestBody User user) {
         if (user.getName() == null || user.getName().isEmpty() ||
                 user.getPassword() == null || user.getPassword().isEmpty() ||
                 user.getEmail() == null || user.getEmail().isEmpty() ||
                 user.getRole() == null || user.getRole().isEmpty())
-            return Constants.FAILED;
+            return null;
 
         userRepository.save(user);
-        return Constants.SUCCESS;
+        return user;
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path = "/all")
     public @ResponseBody
     Iterable<User> getAllUsers() {
@@ -41,6 +43,7 @@ public class UserController {
         return userRepository.findAll();
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path = "/allStudents")
     public @ResponseBody
     Iterable<User> getAllStudents() {
@@ -48,31 +51,33 @@ public class UserController {
         return userRepository.findAll();
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping(path = "/loginByName")
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody
-    String loginByName(@RequestBody User user) {
+    User loginByName(@RequestBody User user) {
         if (user.getName() == null || user.getPassword() == null)
-            return Constants.FAILED;
+            return null;
         List<User> users = userRepository.findUserByName(user.getName(), user.getPassword());
 
         if(users == null || users.isEmpty())
-            return Constants.FAILED;
+            return null;
 
-        return Constants.SUCCESS;
+        return users.get(0);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping(path = "/loginByEmail")
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody
-    String loginByEmail(@RequestBody User user) {
+    User loginByEmail(@RequestBody User user) {
         if (user.getPassword() == null || user.getEmail() == null)
-            return Constants.FAILED;
+            return null;
         List<User> users = userRepository.findUserByEmail(user.getEmail(), user.getPassword());
 
         if(users == null || users.isEmpty())
-            return Constants.FAILED;
+            return null;
 
-        return Constants.SUCCESS;
+        return users.get(0);
     }
 }
