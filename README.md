@@ -29,7 +29,8 @@ Sample Request:
         "name" : "vineeth",
         "email" : "vineethreddy.agusta@gmail.com",
         "password" : "vineeth",
-        "role" : "student"
+        "role" : "student",
+        "grade" : "1-5"
     }
 
 Sample Response(200):
@@ -77,7 +78,7 @@ Sample Response(200):
     
     
 Get All Users:
------------------
+--------------
 
 
 GET Request: 
@@ -92,15 +93,40 @@ Sample Response(200):
         "name": "vineeth",
         "email": "vineethreddy.agusta@gmail.com",
         "password": "vineeth",
-        "role": "student"
+        "role": "student",
+        "grade": "1-5"
       },
       {
         "id": 3,
         "name": "amit",
         "email": "apande36@asu.edu",
         "password": "hack",
-        "role": "student"
+        "role": "student",
+        "grade": "1-5"
       }
     ]
     
+
+Get All Students in a grade:
+----------------------------
+
+GET Request url: http://localhost:8080/teacher/getAllStudentsInGrade
+
+Request Body: 
     
+    {
+    	"grade" : "1-5"
+    } 
+
+Sample Response(200):
+
+    [
+      {
+        "id": 7,
+        "name": "ccmcbc",
+        "email": "CCFindler@gmail.com",
+        "password": "google",
+        "role": "student",
+        "grade": "1-5"
+      }
+    ]
