@@ -24,6 +24,8 @@ public class User implements Serializable {
 
     private String role;
 
+    private String grade;
+
     public String getPassword() {
         return password;
     }
@@ -63,4 +65,13 @@ public class User implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
 }

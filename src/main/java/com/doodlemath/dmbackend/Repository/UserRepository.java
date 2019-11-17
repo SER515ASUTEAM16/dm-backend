@@ -19,4 +19,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
     @Query("Select u from User u where LOWER(u.name) = LOWER(:name) and LOWER(u.password) = LOWER(:password)")
     List<User> findUserByName(@Param("name") String name, @Param("password") String password);
+
+    @Query("Select u from User u where LOWER(u.grade) = LOWER(:grade)")
+    List<User> findAllStudents(@Param("grade") String grade);
 }
