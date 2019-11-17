@@ -24,10 +24,10 @@ public class TeacherController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping(path = "/getAllStudentsInGrade")
+    @GetMapping(path = "/getAllStudentsInGrade/{grade}")
     public @ResponseBody
-    Iterable<User> getAllStudents(@RequestBody User user) {
-        return userRepository.findAllStudents(user.getGrade());
+    Iterable<User> getAllStudents(@PathVariable String grade) {
+        return userRepository.findAllStudents(grade);
     }
 
     @GetMapping(path = "/students")
