@@ -1,10 +1,10 @@
 package com.doodlemath.dmbackend.Model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
+@Table(name="assignment")
 public class Assignment implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -15,7 +15,59 @@ public class Assignment implements Serializable {
 
     private String name;
 
+    private String description;
+
     private String content;
 
-    private String status;
+    private String author;
+
+    private String creationDateTime;
+
+    public String getCreationDateTime() {
+        return creationDateTime;
+    }
+
+    public void setCreationDateTime(String creationDateTime) {
+        this.creationDateTime = creationDateTime;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
