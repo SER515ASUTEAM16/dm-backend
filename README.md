@@ -125,3 +125,44 @@ Sample Response(200):
         "grade": "1-5"
       }
     ]
+    
+    
+Create Assignment By a Teacher:
+----------------------------
+
+POST Request URL: http://localhost:8080/teacher/createAssignment
+
+Sample Request:
+
+    {
+        "name": "Give a name for the assignment",
+        "description": "Give a description of the assignment",
+        "content": "Content of the assignment and equations",
+        "author": "Findler",
+        "creationDateTime": "12/28/2019"
+    }
+
+Sample Response:
+
+    SUCCESS
+
+Get all assignments by a teacher:
+----------------------------
+
+GET Request URL: `http://localhost:8080/teacher/getAssignments/{teacher_name}`
+
+Based on the above request under the tag `Create Assignment By a Teacher:`, the sameple request is `http://localhost:8080/teacher/getAssignments/google`
+
+Sample Response:
+    
+    [
+      {
+        "id": 10,
+        "name": "Give a name for the assignment",
+        "description": "Give a description of the assignment",
+        "content": "Content of the assignment and equations",
+        "author": "Findler",
+        "creationDateTime": "12/28/2019"
+      }
+    ]
+
