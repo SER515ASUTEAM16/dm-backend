@@ -125,3 +125,44 @@ Sample Response(200):
         "grade": "1-5"
       }
     ]
+    
+    
+Create Assignment By a Teacher:
+----------------------------
+
+POST Request URL: http://localhost:8080/teacher/createAssignment
+
+Sample Request:
+
+    {
+    	"name" : "sharingan",
+    	"description" : "First Assignment",
+    	"content" : "sherand96@gmail.com",
+    	"author" : "google",
+    	"creationDateTime" : "sherand96@gmail.com"
+    }
+
+Sample Response:
+
+    SUCCESS
+
+Get all assignments by a teacher:
+----------------------------
+
+GET Request URL: http://localhost:8080/teacher/getAssignments/{teacher_name}
+
+Based on the above request under the tag `Create Assignment By a Teacher:`, the sameple request is `http://localhost:8080/teacher/getAssignments/google`
+
+Sample Response:
+    
+    [
+      {
+        "id": 10,
+        "name": "sharingan",
+        "description": "First Assignment",
+        "content": "sherand96@gmail.com",
+        "author": "google",
+        "creationDateTime": "sherand96@gmail.com"
+      }
+    ]
+
