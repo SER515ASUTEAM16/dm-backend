@@ -21,7 +21,7 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin
     @PostMapping(path = "/register")
     public @ResponseBody
     User addNewUser(@RequestBody User user) {
@@ -35,7 +35,7 @@ public class UserController {
         return user;
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin
     @GetMapping(path = "/all")
     public @ResponseBody
     Iterable<User> getAllUsers() {
@@ -43,7 +43,7 @@ public class UserController {
         return userRepository.findAll();
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin
     @GetMapping(path = "/allStudents")
     public @ResponseBody
     Iterable<User> getAllStudents() {
@@ -51,7 +51,7 @@ public class UserController {
         return userRepository.findAll();
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin
     @PostMapping(path = "/loginByName")
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody
@@ -66,7 +66,7 @@ public class UserController {
         return users.get(0);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin
     @PostMapping(path = "/loginByEmail")
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody
