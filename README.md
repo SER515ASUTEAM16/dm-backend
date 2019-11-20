@@ -151,7 +151,7 @@ Get all assignments by a teacher:
 
 GET Request URL: `http://localhost:8080/teacher/getAssignments/{teacher_name}`
 
-Based on the above request under the tag `Create Assignment By a Teacher:`, the sameple request is `http://localhost:8080/teacher/getAssignments/google`
+Based on the above request under the tag `Create Assignment By a Teacher:`, the sameple request is `http://localhost:8080/teacher/getAssignments/Findler`
 
 Sample Response:
     
