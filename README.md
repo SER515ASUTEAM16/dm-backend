@@ -54,7 +54,7 @@ Sample Request:
 
 Sample Response(200):
 
-    SUCCESS
+    [{"id":3,"name":"amit","email":"apande36@asu.edu","password":"hack","role":"student","grade":null}]
 
 
 Login By Username:
@@ -74,7 +74,7 @@ Sample Request:
 
 Sample Response(200):
 
-    SUCCESS
+    [{"id":3,"name":"amit","email":"apande36@asu.edu","password":"hack","role":"student","grade":null}]
     
     
 Get All Users:
