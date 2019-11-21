@@ -4,6 +4,8 @@ Backend service for Doodle Math
 
 Load the project into IntelliJ
 
+Requirements: <b>`Java 8, does not work on 10 and 11`</b>
+
 
 
 Open Terminal:
@@ -191,8 +193,8 @@ Sample Response:
     SUCCESS
     
 
-Get all students under a teacher:
-----------------------------
+Get all students registered under a teacher:
+-----------------------------------
 
 GET Request URL: `http://localhost:8080/teacher/sharingan/registeredStudents`
 
