@@ -7,4 +7,6 @@ package com.doodlemath.dmbackend.constants;
 public class Constants {
     public static String SUCCESS = "SUCCESS";
     public static String FAILED = "FAILED";
+    public static String ROLE_STUDENT = "student";
+    public static String ROLE_TEACHER = "teacher";
 }
