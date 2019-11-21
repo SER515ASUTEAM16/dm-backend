@@ -4,13 +4,23 @@ Backend service for Doodle Math
 
 Load the project into IntelliJ
 
+Requirements: <b>`Java 8, does not work on 10 and 11`</b>
 
 
-Open Terminal:
+
+Open Terminal(Mac):
 -------------------
 <b>Build:</b> ./gradlew clean build
 
 <b>Run:</b> ./gradlew bootRun
+
+
+Open Terminal(Windows):
+-------------------
+<b>Build:</b> gradlew.bat clean build
+
+<b>Run:</b> gradlew.bat bootRun
+
 
 Health check:
 ------------
@@ -139,7 +149,7 @@ Sample Request:
         "description": "Give a description of the assignment",
         "content": "Content of the assignment and equations",
         "author": "Findler",
-        "creationDateTime": "12/28/2019"
+        "deadline": "12/28/2019"
     }
 
 Sample Response:
@@ -162,7 +172,7 @@ Sample Response:
         "description": "Give a description of the assignment",
         "content": "Content of the assignment and equations",
         "author": "Findler",
-        "creationDateTime": "12/28/2019"
+        "deadline": "12/28/2019"
       }
     ]
 
@@ -191,8 +201,8 @@ Sample Response:
     SUCCESS
     
 
-Get all students under a teacher:
-----------------------------
+Get all students registered under a teacher:
+-----------------------------------
 
 GET Request URL: `http://localhost:8080/teacher/sharingan/registeredStudents`
 

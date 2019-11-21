@@ -73,9 +73,6 @@ public class TeacherController {
         if(assignment.getAuthor() == null || assignment.getAuthor().isEmpty())
             return Constants.FAILED;
 
-        if(assignment.getName() == null || assignment.getName().isEmpty())
-            return Constants.FAILED;
-
         assignmentRepository.save(assignment);
 
         return Constants.SUCCESS;
