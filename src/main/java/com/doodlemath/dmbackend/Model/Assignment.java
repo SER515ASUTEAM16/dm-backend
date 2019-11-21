@@ -13,22 +13,20 @@ public class Assignment implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    private String name;
+    private String title;
 
     private String description;
 
-    private String content;
-
     private String author;
 
-    private String creationDateTime;
+    private String deadline;
 
-    public String getCreationDateTime() {
-        return creationDateTime;
+    public String getDeadline() {
+        return deadline;
     }
 
-    public void setCreationDateTime(String creationDateTime) {
-        this.creationDateTime = creationDateTime;
+    public void setDeadline(String deadline) {
+        this.deadline = deadline;
     }
 
     public Integer getId() {
@@ -37,22 +35,6 @@ public class Assignment implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
     }
 
     public String getAuthor() {
@@ -69,5 +51,13 @@ public class Assignment implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }
