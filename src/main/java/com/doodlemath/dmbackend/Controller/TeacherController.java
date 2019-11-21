@@ -1,7 +1,9 @@
 package com.doodlemath.dmbackend.Controller;
 
 import com.doodlemath.dmbackend.Model.Assignment;
+import com.doodlemath.dmbackend.Model.StudentDetails;
 import com.doodlemath.dmbackend.Repository.AssignmentRepository;
+import com.doodlemath.dmbackend.Repository.StudentTeacherRepository;
 import com.doodlemath.dmbackend.constants.Constants;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +31,9 @@ public class TeacherController {
     @Autowired
     private AssignmentRepository assignmentRepository;
 
+    @Autowired
+    private StudentTeacherRepository studentTeacherRepository;
+
     @CrossOrigin
     @GetMapping(path = "/getAllStudentsInGrade/{grade}")
     public @ResponseBody
@@ -37,10 +42,28 @@ public class TeacherController {
     }
 
     @CrossOrigin
-    @GetMapping(path = "/registerStudent")
+    @PostMapping(path = "/{teacherName}/registerStudents")
     public @ResponseBody
-    Iterable<User> addStudentToCourse(@RequestBody User user) {
-        return userRepository.findAll();
+    String addStudentToCourse(@PathVariable String teacherName, @RequestBody List<User> users) {
+        List<StudentDetails> studentDetailsList = new ArrayList<>(users.size());
+        for(User user : users) {
+            StudentDetails studentDetails = new StudentDetails();
+            studentDetails.setEmail(user.getEmail());
+            studentDetails.setName(user.getName());
+            studentDetails.setTeacher(teacherName);
+            studentDetailsList.add(studentDetails);
+        }
+        studentTeacherRepository.saveAll(studentDetailsList);
+
+        return Constants.SUCCESS;
+    }
+
+    @CrossOrigin
+    @GetMapping(path = "/{teacherName}/registeredStudents")
+    public @ResponseBody
+    List<StudentDetails> addStudentToCourse(@PathVariable String teacherName) {
+        return studentTeacherRepository.findByTeacherName(teacherName);
+        //return null;
     }
 
     @CrossOrigin

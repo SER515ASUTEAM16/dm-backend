@@ -151,7 +151,7 @@ Get all assignments by a teacher:
 
 GET Request URL: `http://localhost:8080/teacher/getAssignments/{teacher_name}`
 
-Based on the above request under the tag `Create Assignment By a Teacher:`, the sameple request is `http://localhost:8080/teacher/getAssignments/google`
+Based on the above request under the tag `Create Assignment By a Teacher:`, the sameple request is `http://localhost:8080/teacher/getAssignments/Findler`
 
 Sample Response:
     
@@ -166,3 +166,49 @@ Sample Response:
       }
     ]
 
+Register students under a teacher:
+----------------------------
+
+POST Request:
+
+    [
+      {
+        "id": 7,
+        "name": "ccmcbc",
+        "email": "CCFindler@gmail.com",
+        "grade": "1-5"
+      },
+      {
+        "id": 8,
+        "name": "akatsuki",
+        "email": "Findler@gmail.com",
+        "grade": "1-5"
+      }
+    ]
+    
+Sample Response:
+
+    SUCCESS
+    
+
+Get all students under a teacher:
+----------------------------
+
+GET Request URL: `http://localhost:8080/teacher/sharingan/registeredStudents`
+
+Sample Response:
+
+    [
+      {
+        "id": 11,
+        "name": "ccmcbc",
+        "email": "CCFindler@gmail.com",
+        "teacher": "sharingan"
+      },
+      {
+        "id": 12,
+        "name": "akatsuki",
+        "email": "Findler@gmail.com",
+        "teacher": "sharingan"
+      }
+    ]
