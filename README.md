@@ -243,3 +243,25 @@ Sample Response:
         "result": null
       }
     ]
+
+Student submit assignment:
+----------------------------
+
+POST Request:
+
+    {
+    	"assignmentID": 30,
+    	"result": "something"
+    }
+    
+Sample Response:
+
+    {
+      "id": 33,
+      "title": "Title",
+      "email": "mc@gmail.com",
+      "name": "sharingan",
+      "description": "sum of 2 and 3",
+      "assignmentID": 30,
+      "result": "something"
+    }
