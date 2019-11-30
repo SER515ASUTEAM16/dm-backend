@@ -222,3 +222,46 @@ Sample Response:
         "teacher": "sharingan"
       }
     ]
+
+Get all assignments given to a student:
+----------------------------
+
+GET Request URL: `http://localhost:8080/student/{student_name}/getAssignments`
+
+Sample request is `http://localhost:8080/student/sharingan/getAssignments`
+
+Sample Response:
+    
+    [
+      {
+        "id": 33,
+        "title": "Title",
+        "email": "mc@gmail.com",
+        "name": "sharingan",
+        "description": "sum of 2 and 3",
+        "assignmentID": 30,
+        "result": null
+      }
+    ]
+
+Student submit assignment:
+----------------------------
+
+POST Request:
+
+    {
+    	"assignmentID": 30,
+    	"result": "something"
+    }
+    
+Sample Response:
+
+    {
+      "id": 33,
+      "title": "Title",
+      "email": "mc@gmail.com",
+      "name": "sharingan",
+      "description": "sum of 2 and 3",
+      "assignmentID": 30,
+      "result": "something"
+    }
