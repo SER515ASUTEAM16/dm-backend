@@ -1,8 +1,6 @@
 package com.doodlemath.dmbackend.Controller;
 
-import com.doodlemath.dmbackend.Model.Assignment;
 import com.doodlemath.dmbackend.Model.StudentAssignment;
-import com.doodlemath.dmbackend.Repository.AssignmentRepository;
 import com.doodlemath.dmbackend.Repository.StudentAssignmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -68,7 +68,6 @@ public class TeacherController {
     public @ResponseBody
     List<StudentDetails> addStudentToCourse(@PathVariable String teacherName) {
         return studentTeacherRepository.findByTeacherName(teacherName);
-        //return null;
     }
 
     @CrossOrigin
@@ -84,6 +83,7 @@ public class TeacherController {
         for(User user : users) {
             StudentAssignment studentAssignment = new StudentAssignment();
             studentAssignment.setEmail(user.getEmail());
+            studentAssignment.setName(user.getName());
             studentAssignment.setAssignmentID(createdAssignment.getId());
             studentAssignment.setTitle(createdAssignment.getTitle());
             studentAssignment.setDescription(createdAssignment.getDescription());
