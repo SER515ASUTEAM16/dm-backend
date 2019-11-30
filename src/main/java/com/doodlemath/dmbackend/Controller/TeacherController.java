@@ -1,8 +1,10 @@
 package com.doodlemath.dmbackend.Controller;
 
 import com.doodlemath.dmbackend.Model.Assignment;
+import com.doodlemath.dmbackend.Model.StudentAssignment;
 import com.doodlemath.dmbackend.Model.StudentDetails;
 import com.doodlemath.dmbackend.Repository.AssignmentRepository;
+import com.doodlemath.dmbackend.Repository.StudentAssignmentRepository;
 import com.doodlemath.dmbackend.Repository.StudentTeacherRepository;
 import com.doodlemath.dmbackend.constants.Constants;
 import org.springframework.stereotype.Controller;
@@ -33,6 +35,9 @@ public class TeacherController {
 
     @Autowired
     private StudentTeacherRepository studentTeacherRepository;
+
+    @Autowired
+    private StudentAssignmentRepository studentAssignmentRepository;
 
     @CrossOrigin
     @GetMapping(path = "/getAllStudentsInGrade/{grade}")
@@ -69,13 +74,23 @@ public class TeacherController {
     @CrossOrigin
     @PostMapping(path = "/createAssignment")
     public @ResponseBody
-    String createAssignment(@RequestBody Assignment assignment) {
+    Assignment createAssignment(@RequestBody Assignment assignment) {
         if(assignment.getAuthor() == null || assignment.getAuthor().isEmpty())
-            return Constants.FAILED;
+            return null;
 
-        assignmentRepository.save(assignment);
+        Assignment createdAssignment = assignmentRepository.save(assignment);
+        List<User> users = userRepository.findAllStudents(assignment.getGrade());
 
-        return Constants.SUCCESS;
+        for(User user : users) {
+            StudentAssignment studentAssignment = new StudentAssignment();
+            studentAssignment.setEmail(user.getEmail());
+            studentAssignment.setAssignmentID(createdAssignment.getId());
+            studentAssignment.setTitle(createdAssignment.getTitle());
+            studentAssignment.setDescription(createdAssignment.getDescription());
+            studentAssignmentRepository.save(studentAssignment);
+        }
+
+        return createdAssignment;
     }
 
     @CrossOrigin
