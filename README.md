@@ -145,10 +145,10 @@ POST Request URL: http://localhost:8080/teacher/createAssignment
 Sample Request:
 
     {
-        "name": "Give a name for the assignment",
+        "title": "Title of the assignment",
         "description": "Give a description of the assignment",
-        "content": "Content of the assignment and equations",
         "author": "Findler",
+        "grade": "1-5"
         "deadline": "12/28/2019"
     }
 
@@ -168,10 +168,10 @@ Sample Response:
     [
       {
         "id": 10,
-        "name": "Give a name for the assignment",
+        "title": "Title of the assignment",
         "description": "Give a description of the assignment",
-        "content": "Content of the assignment and equations",
         "author": "Findler",
+        "grade": "1-5"
         "deadline": "12/28/2019"
       }
     ]
