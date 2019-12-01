@@ -149,7 +149,8 @@ Sample Request:
         "description": "Give a description of the assignment",
         "author": "Findler",
         "grade": "1-5"
-        "deadline": "12/28/2019"
+        "deadline": "12/28/2019",
+        "solution": ""
     }
 
 Sample Response:
@@ -172,7 +173,8 @@ Sample Response:
         "description": "Give a description of the assignment",
         "author": "Findler",
         "grade": "1-5"
-        "deadline": "12/28/2019"
+        "deadline": "12/28/2019",
+        "solution": ""
       }
     ]
 
