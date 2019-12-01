@@ -277,3 +277,22 @@ Sample Response:
       "result": "something",
       "dueDate": null
     }
+    
+Student tries to fetch assignment details:
+--------------------------------------------------------
+
+GET Request URL: `http://localhost:8080/student/getAssignment/{assignmentID}`
+
+Sample request is `http://localhost:8080/student/getAssignment/30`
+
+Sample Response:
+
+    {
+      "id": 30,
+      "title": "Title",
+      "description": "sum of 2 and 3",
+      "author": "google",
+      "deadline": "10/11/19 11:59",
+      "grade": "1-5",
+      "solution": null
+    }
