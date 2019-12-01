@@ -98,8 +98,8 @@ public class TeacherController {
     @GetMapping(path = "/getAssignments/{authorName}")
     public @ResponseBody
     List<Assignment> getAssignments(@PathVariable String authorName) {
-        List<Assignment> assignment = assignmentRepository.findAssignmentsCreatedByAuthor(authorName);
-        return assignment;
+        List<Assignment> assignments = assignmentRepository.findAssignmentsCreatedByAuthor(authorName);
+        return assignments;
     }
 
     @CrossOrigin
@@ -108,6 +108,9 @@ public class TeacherController {
     List<Assignment> getAssignments() {
         List<Assignment> assignmentList = new ArrayList<>();
         Iterable<Assignment> assignments = assignmentRepository.findAll();
+
+        if(assignments == null)
+            return null;
 
         Iterator<Assignment> iterator = assignments.iterator();
         while(iterator.hasNext()) {

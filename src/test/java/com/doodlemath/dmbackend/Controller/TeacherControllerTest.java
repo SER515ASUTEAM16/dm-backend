@@ -1,6 +1,8 @@
 package com.doodlemath.dmbackend.Controller;
 
+import com.doodlemath.dmbackend.Model.Assignment;
 import com.doodlemath.dmbackend.Model.User;
+import com.doodlemath.dmbackend.Repository.AssignmentRepository;
 import com.doodlemath.dmbackend.Repository.StudentTeacherRepository;
 import com.doodlemath.dmbackend.Repository.UserRepository;
 import com.doodlemath.dmbackend.constants.Constants;
@@ -26,6 +28,9 @@ public class TeacherControllerTest {
 
     @Mock
     private StudentTeacherRepository studentTeacherRepository;
+
+    @Mock
+    private AssignmentRepository assignmentRepository;
 
     @InjectMocks
     TeacherController teacherController;
@@ -65,14 +70,32 @@ public class TeacherControllerTest {
     }
 
     @Test
-    public void createAssignment() throws Exception {
+    public void returnNullWhenAuthorOfAssignmentIsEmpty() throws Exception {
+        Assignment assignment = new Assignment();
+        assignment.setAuthor(null);
+
+        Assert.assertNull(teacherController.createAssignment(assignment));
     }
 
     @Test
     public void getAssignments() throws Exception {
+        Assignment assignment1 = new Assignment();
+        List<Assignment> assignmentList = new ArrayList<>();
+        assignmentList.add(assignment1);
+        when(assignmentRepository.findAssignmentsCreatedByAuthor(Mockito.any())).thenReturn(assignmentList);
+
+        Assert.assertEquals(teacherController.getAssignments("AuthorName"), assignmentList);
     }
 
     @Test
-    public void getAssignments1() throws Exception {
+    public void getAllAssignments() throws Exception {
+        Assignment assignment1 = new Assignment();
+        List<Assignment> assignmentList = new ArrayList<>();
+        assignmentList.add(assignment1);
+
+        //Return all assignments
+        when(assignmentRepository.findAll()).thenReturn(null);
+
+        Assert.assertNull(teacherController.getAssignments());
     }
 }
