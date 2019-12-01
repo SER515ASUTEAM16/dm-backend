@@ -23,6 +23,16 @@ public class Assignment implements Serializable {
 
     private String grade;
 
+    private String solution;
+
+    public String getSolution() {
+        return solution;
+    }
+
+    public void setSolution(String solution) {
+        this.solution = solution;
+    }
+
     public String getGrade() {
         return grade;
     }
