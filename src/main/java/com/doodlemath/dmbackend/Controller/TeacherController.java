@@ -87,6 +87,7 @@ public class TeacherController {
             studentAssignment.setAssignmentID(createdAssignment.getId());
             studentAssignment.setTitle(createdAssignment.getTitle());
             studentAssignment.setDescription(createdAssignment.getDescription());
+            studentAssignment.setDueDate(createdAssignment.getDeadline());
             studentAssignmentRepository.save(studentAssignment);
         }
 

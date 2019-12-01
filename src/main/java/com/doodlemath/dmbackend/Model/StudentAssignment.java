@@ -31,6 +31,16 @@ public class StudentAssignment {
 
     private String result;
 
+    private String dueDate;
+
+    public String getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(String dueDate) {
+        this.dueDate = dueDate;
+    }
+
     public Integer getId() {
         return id;
     }

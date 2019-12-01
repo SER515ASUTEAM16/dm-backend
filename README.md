@@ -240,7 +240,18 @@ Sample Response:
         "name": "sharingan",
         "description": "sum of 2 and 3",
         "assignmentID": 30,
-        "result": null
+        "result": "something",
+        "dueDate": "10/11/19 11:59"
+      },
+      {
+        "id": 38,
+        "title": "New title",
+        "email": "mc@gmail.com",
+        "name": "sharingan",
+        "description": "2 + 3",
+        "assignmentID": 35,
+        "result": null,
+        "dueDate": "10/11/19 11:59"
       }
     ]
 
@@ -263,5 +274,6 @@ Sample Response:
       "name": "sharingan",
       "description": "sum of 2 and 3",
       "assignmentID": 30,
-      "result": "something"
+      "result": "something",
+      "dueDate": null
     }
