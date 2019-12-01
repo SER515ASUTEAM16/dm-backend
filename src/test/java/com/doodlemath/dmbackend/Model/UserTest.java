@@ -1,7 +1,7 @@
 package com.doodlemath.dmbackend.Model;
 
-import org.junit.jupiter.api.Test;
 
+import org.junit.Test;
 
 public class UserTest {
     @Test
