@@ -3,7 +3,6 @@ package com.doodlemath.dmbackend.Controller;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 
 public class HealthControllerTest {
 
@@ -12,6 +11,6 @@ public class HealthControllerTest {
         HealthController healthController = new HealthController();
 
         //Test that health returns health when app is up and running
-        Assert.assertEquals(healthController.health(), "health");
+        Assert.assertEquals(healthController.health(), "good");
     }
 }
