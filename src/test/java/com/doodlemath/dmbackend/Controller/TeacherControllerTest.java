@@ -1,21 +1,35 @@
 package com.doodlemath.dmbackend.Controller;
 
+import com.doodlemath.dmbackend.Repository.UserRepository;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import static org.junit.Assert.*;
+import static org.mockito.Mockito.when;
 
+@RunWith(SpringJUnit4ClassRunner.class)
 public class TeacherControllerTest {
-    TeacherController teacherController = new TeacherController();
+
+    @Mock
+    private UserRepository userRepository;
+
+    @InjectMocks
+    TeacherController teacherController;
 
     @Before
     public void setup() {
+
     }
 
     @Test
     public void getAllStudents() throws Exception {
-        //teacherController.getAllStudents();
-        //Unable to test this method as the method calls spring repository
+        when(userRepository.findAllStudents(Mockito.any())).thenReturn(null);
+        Assert.assertNull(teacherController.getAllStudents("1-5"));
     }
 
     @Test
