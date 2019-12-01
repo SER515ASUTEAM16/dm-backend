@@ -281,9 +281,9 @@ Sample Response:
 Student tries to fetch assignment details:
 --------------------------------------------------------
 
-GET Request URL: `http://localhost:8080/student/getAssignment/{assignmentID}`
+GET Request URL: `http://localhost:8080/student/assignment/{assignmentID}`
 
-Sample request is `http://localhost:8080/student/getAssignment/30`
+Sample request is `http://localhost:8080/student/assignment/30`
 
 Sample Response:
 
