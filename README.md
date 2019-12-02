@@ -149,7 +149,8 @@ Sample Request:
         "description": "Give a description of the assignment",
         "author": "Findler",
         "grade": "1-5"
-        "deadline": "12/28/2019"
+        "deadline": "12/28/2019",
+        "solution": ""
     }
 
 Sample Response:
@@ -172,7 +173,8 @@ Sample Response:
         "description": "Give a description of the assignment",
         "author": "Findler",
         "grade": "1-5"
-        "deadline": "12/28/2019"
+        "deadline": "12/28/2019",
+        "solution": ""
       }
     ]
 
@@ -261,21 +263,24 @@ Student submit assignment:
 POST Request:
 
     {
-    	"assignmentID": 30,
+    	"assignmentID": 76,
+    	"score" : "75",
     	"result": "something"
     }
     
 Sample Response:
 
     {
-      "id": 33,
-      "title": "Title",
+      "id": 79,
+      "title": "New title",
       "email": "mc@gmail.com",
       "name": "sharingan",
-      "description": "sum of 2 and 3",
-      "assignmentID": 30,
+      "description": "2 + 3;5 + 6; 7 + 9",
+      "assignmentID": 76,
       "result": "something",
-      "dueDate": null
+      "score": "75",
+      "dueDate": "10/11/19 11:59",
+      "grade": "1-5"
     }
     
 Student tries to fetch assignment details:
@@ -296,3 +301,64 @@ Sample Response:
       "grade": "1-5",
       "solution": null
     }
+
+
+Get Students and submissions for an assignment:
+--------------------------------------------------------
+
+GET Request URL: `http://localhost:8080/teacher/studentassignment/{assignmentID}`
+
+Sample request is `http://localhost:8080/teacher/studentassignment/76`
+
+Sample Response:
+    
+    [
+      {
+        "id": 77,
+        "title": "New title",
+        "email": "CCFindler@gmail.com",
+        "name": "ccmcbc",
+        "description": "2 + 3;5 + 6; 7 + 9",
+        "assignmentID": 76,
+        "result": null,
+        "score": null,
+        "dueDate": "10/11/19 11:59",
+        "grade": "1-5"
+      },
+      {
+        "id": 78,
+        "title": "New title",
+        "email": "Findler@gmail.com",
+        "name": "akatsuki",
+        "description": "2 + 3;5 + 6; 7 + 9",
+        "assignmentID": 76,
+        "result": null,
+        "score": null,
+        "dueDate": "10/11/19 11:59",
+        "grade": "1-5"
+      },
+      {
+        "id": 79,
+        "title": "New title",
+        "email": "mc@gmail.com",
+        "name": "sharingan",
+        "description": "2 + 3;5 + 6; 7 + 9",
+        "assignmentID": 76,
+        "result": "something",
+        "score": "75",
+        "dueDate": "10/11/19 11:59",
+        "grade": "1-5"
+      },
+      {
+        "id": 80,
+        "title": "New title",
+        "email": "aaa",
+        "name": "aaa",
+        "description": "2 + 3;5 + 6; 7 + 9",
+        "assignmentID": 76,
+        "result": null,
+        "score": null,
+        "dueDate": "10/11/19 11:59",
+        "grade": "1-5"
+      }
+    ]

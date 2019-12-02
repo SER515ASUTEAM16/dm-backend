@@ -17,6 +17,35 @@ public class StudentAssignment {
 
     private String name;
 
+    private String description;
+
+    private Integer assignmentID;
+
+    private String result;
+
+    private String score;
+
+    private String dueDate;
+
+    private String grade;
+
+    public String getScore() {
+        return score;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
+
     public String getName() {
         return name;
     }
@@ -24,14 +53,6 @@ public class StudentAssignment {
     public void setName(String name) {
         this.name = name;
     }
-
-    private String description;
-
-    private Integer assignmentID;
-
-    private String result;
-
-    private String dueDate;
 
     public String getDueDate() {
         return dueDate;

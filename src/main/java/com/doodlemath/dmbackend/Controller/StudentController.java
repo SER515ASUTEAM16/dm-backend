@@ -48,6 +48,7 @@ public class StudentController {
         List<StudentAssignment> assignments = studentAssignmentRepository.findAssignmentsByStudentNameAssignmentID(studentName, studentAssignment.getAssignmentID());
         StudentAssignment studentAssignmentUpdatable = assignments.get(0);
         studentAssignmentUpdatable.setResult(studentAssignment.getResult());
+        studentAssignmentUpdatable.setScore(studentAssignment.getScore());
         StudentAssignment studentAssignmentUpdated = studentAssignmentRepository.save(studentAssignmentUpdatable);
         return studentAssignmentUpdated;
     }

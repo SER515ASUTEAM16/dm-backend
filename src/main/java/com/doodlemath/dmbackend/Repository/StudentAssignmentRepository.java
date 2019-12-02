@@ -18,4 +18,7 @@ public interface StudentAssignmentRepository extends CrudRepository<StudentAssig
     @Query("Select u from StudentAssignment u where LOWER(u.name) = LOWER(:name) and u.assignmentID = :assignmentID")
     List<StudentAssignment> findAssignmentsByStudentNameAssignmentID(@Param("name") String name, @Param("assignmentID") Integer assignmentID);
 
+    @Query("Select u from StudentAssignment u where u.assignmentID = :assignmentID")
+    List<StudentAssignment> findStudentAssignmentsByAssignmentID(@Param("assignmentID") Integer assignmentID);
+
 }

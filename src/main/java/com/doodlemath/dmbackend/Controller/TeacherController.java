@@ -47,6 +47,13 @@ public class TeacherController {
     }
 
     @CrossOrigin
+    @GetMapping(path = "/studentassignment/{assignmentID}")
+    public @ResponseBody
+    Iterable<StudentAssignment> getAssignmentsAndStudents(@PathVariable Integer assignmentID) {
+        return studentAssignmentRepository.findStudentAssignmentsByAssignmentID(assignmentID);
+    }
+
+    @CrossOrigin
     @PostMapping(path = "/{teacherName}/registerStudents")
     public @ResponseBody
     String addStudentToCourse(@PathVariable String teacherName, @RequestBody List<User> users) {
@@ -88,6 +95,7 @@ public class TeacherController {
             studentAssignment.setTitle(createdAssignment.getTitle());
             studentAssignment.setDescription(createdAssignment.getDescription());
             studentAssignment.setDueDate(createdAssignment.getDeadline());
+            studentAssignment.setGrade(createdAssignment.getGrade());
             studentAssignmentRepository.save(studentAssignment);
         }
 
@@ -98,8 +106,8 @@ public class TeacherController {
     @GetMapping(path = "/getAssignments/{authorName}")
     public @ResponseBody
     List<Assignment> getAssignments(@PathVariable String authorName) {
-        List<Assignment> assignment = assignmentRepository.findAssignmentsCreatedByAuthor(authorName);
-        return assignment;
+        List<Assignment> assignments = assignmentRepository.findAssignmentsCreatedByAuthor(authorName);
+        return assignments;
     }
 
     @CrossOrigin
@@ -108,6 +116,9 @@ public class TeacherController {
     List<Assignment> getAssignments() {
         List<Assignment> assignmentList = new ArrayList<>();
         Iterable<Assignment> assignments = assignmentRepository.findAll();
+
+        if(assignments == null)
+            return null;
 
         Iterator<Assignment> iterator = assignments.iterator();
         while(iterator.hasNext()) {
