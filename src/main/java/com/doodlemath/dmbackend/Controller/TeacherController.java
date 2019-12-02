@@ -47,6 +47,13 @@ public class TeacherController {
     }
 
     @CrossOrigin
+    @GetMapping(path = "/studentassignment/{assignmentID}")
+    public @ResponseBody
+    Iterable<StudentAssignment> getAssignmentsAndStudents(@PathVariable Integer assignmentID) {
+        return studentAssignmentRepository.findStudentAssignmentsByAssignmentID(assignmentID);
+    }
+
+    @CrossOrigin
     @PostMapping(path = "/{teacherName}/registerStudents")
     public @ResponseBody
     String addStudentToCourse(@PathVariable String teacherName, @RequestBody List<User> users) {
@@ -88,6 +95,7 @@ public class TeacherController {
             studentAssignment.setTitle(createdAssignment.getTitle());
             studentAssignment.setDescription(createdAssignment.getDescription());
             studentAssignment.setDueDate(createdAssignment.getDeadline());
+            studentAssignment.setGrade(createdAssignment.getGrade());
             studentAssignmentRepository.save(studentAssignment);
         }
 
